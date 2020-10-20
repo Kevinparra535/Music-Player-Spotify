@@ -1,13 +1,8 @@
 // Controls
 
-const play = document.getElementById("controls_play");
-const pause = document.getElementById("controls_pause");
-const prev = document.getElementById("controls_prev");
-const next = document.getElementById("controls_next");
-
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
-    "BQBKrdDlwObeo69nal3_FQGUVmGEUfuBs9DCNQNkS0DRCRN1e7TQKZ3y9huJL1dsCVjlq4eZW5QJ_j_TWubViM5NTNIqC8aEVrslfyLqfbs5Rs5Je1SUUkRdaOHk_F4wEkhE-isb64f4dI_3YomENEdCpywo0TAhkphqJbDlozKyCcx6IeM";
+    "BQCiItKzhIRVJWo_FDQbaykk8lX16RWw8WXCwlsI-uxeqmNI6AdONhlVMZ4n7TJiHTu3N3SLPEgDuWoXrnD0jqwzzByqvc3tVvMxMtZ5dzzLR7pVKTsmiSCwdUmUovkpt_ySfHZm12OTOFv5fnHYF5xXYIBf50R03IITE5nTRxS2ylH6TiY";
   const player = new Spotify.Player({
     name: "Reproductor de Kevin",
     getOAuthToken: (cb) => {
@@ -33,14 +28,27 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   player.addListener("player_state_changed", (state) => {
     console.log(state);
 
-    document.getElementById("controls_title").innerHTML =
-      state.track_window.current_track.name;
+    $(".header__alert").html("Estas Conectado a spotify!").addClass("success");
+    console.log("Estas Conectado a spotify!");
+
+    $(".player__dataName").html(state.track_window.current_track.name);
 
     state.track_window.current_track.artists.map((subject) => {
-      let names = subject.name;
-      document.getElementById("controls_artits").innerHTML = names;
-      console.log(names);
+      names = subject.name;
+      return;
     });
+    $(".player__dataArtista").html(names);
+
+    $(".player__album").attr(
+      "src",
+      state.track_window.current_track.album.images[0].url
+    );
+
+    if (state.paused) {
+      $(".image__play").attr("src", "./../src/images/icons/play.png");
+    } else if(state.paused == false) {
+      $(".image__play").attr("src", "./../src/images/icons/pause.png");
+    }
   });
 
   // Ready
@@ -52,9 +60,6 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   player.addListener("not_ready", ({ device_id }) => {
     console.log("Device ID has gone offline", device_id);
   });
-
-  // Connect to the player!
-  player.connect();
 
   player.getCurrentState().then((state) => {
     if (!state) {
@@ -71,35 +76,22 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     console.log("Playing Next", next_track);
   });
 
-  pause.addEventListener("click", (event) => {
+  $(".player__play").bind("click", (event) => {
     event.preventDefault();
 
-    player.pause().then(() => {
-      console.log("Paused!");
+    player.togglePlay().then(() => {
+      console.log("Toggled playback!");
     });
   });
 
-  play.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    player.resume().then(() => {
-      console.log("Resumed!");
-    });
-  });
-
-  prev.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    player.previousTrack().then(() => {
-      console.log("Set to previous track!");
-    });
-  });
-
-  next.addEventListener("click", (event) => {
+  $(".player__next").bind("click", (event) => {
     event.preventDefault();
 
     player.nextTrack().then(() => {
       console.log("Skipped to next track!");
     });
   });
+
+  // Connect to the player!
+  player.connect();
 };

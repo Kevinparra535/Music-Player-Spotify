@@ -1,0 +1,42 @@
+@import "../Tokens/colors";
+@import "../Tokens/spacings";
+@import "../Tokens/typos";
+
+.player {
+  padding: $space_x2 $space_x2;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: $color-claro;
+  background-color: $color-primario;
+  @include display-grid;
+  @include grid-template-columns(auto auto auto auto);
+  p {
+    margin: 0;
+    @include font-size($p);
+  }
+  &__data {
+    color: $color-claro;
+    text-decoration: none;
+  }
+  progress {
+    width: 100%;
+  }
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+  }
+  button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    img {
+      width: 20px;
+      object-fit: contain;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import "../Tokens/colors";
+@import "../Tokens/spacings";
+@import "../Tokens/typos";
+
+.main {
+  width: 100%;
+  padding: $space_x2;
+  h1 {
+    padding-bottom: $space_x2;
+    font-weight: $medium;
+    @include font-size($h2);
+  }
+}

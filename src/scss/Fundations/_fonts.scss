@@ -19,27 +19,9 @@ html {
 body {
     padding: 0;
     margin: 0;
-    color: $color-oscuro;
-    background: $color-claro;
+    color: $color-claro;
+    background: $color-bg-oscuro;
     @include titulos($Fuente1);
     @include font-size($p);
-    &.dark{
-        background-color: $color-oscuro;
-    }
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-#dashboard {
-    display: none;
-}
