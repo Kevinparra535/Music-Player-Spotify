@@ -1,0 +1,45 @@
+//  ███╗...███╗.█████╗.██╗███╗...██╗
+//  ████╗.████║██╔══██╗██║████╗..██║
+//  ██╔████╔██║███████║██║██╔██╗.██║
+//  ██║╚██╔╝██║██╔══██║██║██║╚██╗██║
+//  ██║.╚═╝.██║██║..██║██║██║.╚████║
+//  ╚═╝.....╚═╝╚═╝..╚═╝╚═╝╚═╝..╚═══╝
+//  ................................
+@import "../Tokens/colors";
+@import "../Tokens/spacings";
+@import "../Tokens/typos";
+//
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow-y: scroll;
+    margin-right: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    color: $color-oscuro;
+    background: $color-claro;
+    @include titulos($Fuente1);
+    @include font-size($p);
+    &.dark{
+        background-color: $color-oscuro;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#dashboard {
+    display: none;
+}
