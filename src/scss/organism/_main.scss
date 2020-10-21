@@ -1,0 +1,22 @@
+@import "../Tokens/colors";
+@import "../Tokens/spacings";
+@import "../Tokens/typos";
+
+.main {
+  padding: $space_x2;
+  margin-bottom: 70px ;
+  h3 {
+    padding: $space_x2 $space;
+  }
+  &__banner {
+    margin: $space_x3 0;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__cards {
+    grid-gap: $space_x2;
+    @include display-grid;
+    @include grid-template-columns(auto auto);
+  }
+}

@@ -1,0 +1,24 @@
+@import "../Tokens/colors";
+@import "../Tokens/spacings";
+@import "../Tokens/typos";
+
+.main__cards--card {
+  @include cards;
+}
+
+.weekend {
+  color: $color-claro;
+  background-color: #050505;
+}
+.travis {
+  color: $color-claro;
+  background-color: #8a1c18;
+}
+.eminem {
+  color: $color-claro;
+  background-color: #3e3f37;
+}
+.rihanna {
+  color: $color-claro;
+  background-color: #d78450;
+}

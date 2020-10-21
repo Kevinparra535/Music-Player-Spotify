@@ -1,10 +1,10 @@
 @import "./Vendors/bootstrap_reboot";
 @import "./Vendors/grids.scss";
 @import "./Vendors/breakpoints.scss";
-@import "./Organismo/globales.scss";
-@import "./Fundations/fonts.scss";
-@import "./componentes/headers.scss";
-@import "./Organismo/main";
-@import "./Atomos/cards";
-@import "./Atomos/partials";
-@import "./componentes/player";
+@import "./organism/globales";
+
+@import "./fundations/fonts";
+@import "./components/header";
+@import "./components/player";
+@import "./organism/main";
+@import "./atoms/cards";

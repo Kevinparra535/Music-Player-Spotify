@@ -1,0 +1,26 @@
+@import "./../tokens/colors";
+@import "./../tokens/spacings";
+@import "./../tokens/typos";
+
+.header {
+  padding: $space $space_x2;
+  width: 100%;
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1 {
+      font-weight: $bolder;
+      color: $color-oscuro;
+      @include font-size($h2);
+      img {
+        width: 25px;
+      }
+    }
+    a {
+      img {
+        width: 25px;
+      }
+    }
+  }
+}

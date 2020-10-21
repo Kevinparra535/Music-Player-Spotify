@@ -1,0 +1,42 @@
+@import "./../tokens/colors";
+@import "./../tokens/spacings";
+@import "./../tokens/typos";
+
+.player {
+  padding: $space;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  color: $color-claro;
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: $color-oscuro;
+  img {
+    width: 50px;
+  }
+  &__details {
+    @include font-size($p);
+    p, a {
+      margin: 0;
+      text-decoration: none;
+      color: $color-claro;
+    }
+  }
+
+  &__controls {
+    button {
+      margin-left: $space_x2;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      img {
+        width: 20px;
+      }
+    }
+  }
+}

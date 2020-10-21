@@ -1,82 +1,77 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/css/index.css" />
-    <title>Music Player</title>
+    <link rel="stylesheet" href="./src/css/index.css" />
+    <title>Fox Player</title>
   </head>
   <body>
     <header class="header">
-      <p class="header__alert">No estas Conectado a spotify!</p>
-      <a class="header__menu" href="#">
-        <img src="./src/images/nav__menu.png" alt="Menu button"
-      /></a>
+      <nav class="header__nav">
+        <h1>
+          Fox Player
+          <img src="./src/images/icons/icon__spotify.svg" alt="" />
+        </h1>
+        <a href="#">
+          <img src="./src/images/icons/nav__menu.png" alt="" />
+        </a>
+      </nav>
     </header>
 
     <main class="main">
-      <h1>Home</h1>
+      <img
+        class="main__banner"
+        src="./src/images/cards__main.png"
+        alt="Main Banner"
+      />
 
-      <div class="cards">
-        <div class="cards__main">
-          <img src="./src/images/cards__main.webp" alt="imagen" />
+      <h3>Reproducidas recientemente</h3>
+
+      <div class="main__cards">
+        <div class="main__cards--card weekend">
+          <img src="./src/images/cards__theWeekend.jpg" alt="The Weekend" />
+          <p>The Weekend</p>
         </div>
 
-        <h2>Tendencia 🔥</h2>
+        <div class="main__cards--card eminem">
+          <img src="./src/images/cards__eminem.jpg" alt="The Weekend" />
+          <p>Eminem</p>
+        </div>
 
-        <div class="cards__grid">
-          <div>
-            <img src="./src/images/cards__theWeekend.jpg" alt="imagen" />
-          </div>
-          <div>
-            <img src="./src/images/cards__travis.jpg" alt="imagen" />
-          </div>
-          <div>
-            <img src="./src/images/cards__riana.jpg" alt="imagen" />
-          </div>
-          <div>
-            <img src="./src/images/cards__eminem.jpg" alt="imagen" />
-          </div>
+        <div class="main__cards--card travis">
+          <img src="./src/images/cards__travis.jpg" alt="The Weekend" />
+          <p>Travis Scott</p>
+        </div>
+
+        <div class="main__cards--card rihanna">
+          <img src="./src/images/cards__riana.jpg" alt="The Weekend" />
+          <p>Rihanna</p>
         </div>
       </div>
     </main>
 
     <div class="player">
-      <img
-        class="player__album"
-        src="./src/images/cards__riana.jpg"
-        alt="Album title"
-      />
+      <img src="./src/images/icons/player__default.png" alt="" />
 
-      <a class="player__data" href="#">
-        <p class="player__dataName">Song name -</p>
-        <p class="player__dataArtista">Artists</p>
-      </a>
-      <!-- <progress></progress> -->
+      <div class="player__details">
+        <a href="#">
+          <b>Song Name</b>
+        </a>
+        <p>Artist</p>
+      </div>
 
-      <button class="player__play">
-        <img class="image__play" src="./src/images/icons/play.png" alt="play button" />
-      </button>
-      <button class="player__next">
-        <img src="./src/images/icons/next.png" alt="play button" />
-      </button>
+      <div class="player__controls">
+        <button>
+          <img src="./src/images/icons/previous.png" alt="" />
+        </button>
+        <button>
+          <img src="./src/images/icons/play.png" alt="" />
+        </button>
+        <button>
+          <img src="./src/images/icons/next.png" alt="" />
+        </button>
+      </div>
     </div>
-
-    <!-- <div class="controls">
-      <h3 id="controls_title">Reproduce una canción</h3>
-      <p id="controls_artits">Artistas</p>
-      <button id="controls_prev">Previous</button>
-      <button id="controls_play">Play</button>
-      <button id="controls_pause">Pause</button>
-      <button id="controls_next">Next</button>
-    </div> -->
-
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.min.js"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
-    <script src="./src/js/index.js"></script>
   </body>
 </html>

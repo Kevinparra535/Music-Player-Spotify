@@ -1,12 +1,11 @@
 /* Reboot Codes - Based on normalize.css v5.0.0
 **********************/
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2? familia:Poppins:wght@100;200;300;400;500;600;700;800;900&display-swap");
+@import url("https://fonts.googleapis.com/css2? familia:Poppins:wght@100;200;300;400;500;600;700;800;900&display-swap");
+@import url("https://fonts.googleapis.com/css2? familia:Poppins:wght@100;200;300;400;500;600;700;800;900&display-swap");
+@import url("https://fonts.googleapis.com/css2? familia:Poppins:wght@100;200;300;400;500;600;700;800;900&display-swap");
+@import url("https://fonts.googleapis.com/css2? familia:Poppins:wght@100;200;300;400;500;600;700;800;900&display-swap");
+@import url("https://fonts.googleapis.com/css2? familia:Poppins:wght@100;200;300;400;500;600;700;800;900&display-swap");
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -484,115 +483,131 @@ html {
 body {
   padding: 0;
   margin: 0;
-  color: #eae8e8;
-  background: #263238;
-  font-family: "Montserrat", sans-serif;
+  color: #263238;
+  background: #f1efef;
+  font-family: "Poppins", system-ui;
   font-size: 15px;
   font-size: 0.9375rem;
   line-height: 1.40625rem;
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 10px 20px;
   width: 100%;
 }
-.header__alert {
-  padding: 0;
-  margin: 0;
-  color: #E53935;
-  font-size: 15px;
-  font-size: 0.9375rem;
-  line-height: 1.40625rem;
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.header__menu img {
-  width: 30px;
-}
-
-.main {
-  width: 100%;
-  padding: 20px;
-}
-.main h1 {
-  padding-bottom: 20px;
-  font-weight: 600;
+.header__nav h1 {
+  font-weight: 700;
+  color: #263238;
   font-size: 30px;
   font-size: 1.875rem;
   line-height: 2.8125rem;
 }
-
-.cards__main {
-  padding-bottom: 30px;
-  width: 100%;
+.header__nav h1 img {
+  width: 25px;
 }
-.cards__main img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-}
-.cards h2 {
-  padding-bottom: 20px;
-  font-weight: 600;
-  font-size: 30px;
-  font-size: 1.875rem;
-  line-height: 2.8125rem;
-}
-.cards__grid {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 20px;
-}
-.cards__grid img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.success {
-  color: #4caf50;
+.header__nav a img {
+  width: 25px;
 }
 
 .player {
-  padding: 20px 20px;
+  padding: 10px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   position: fixed;
+  z-index: 1;
   bottom: 0;
   width: 100%;
-  color: #eae8e8;
+  color: #f8f8f8;
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #263238;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
 }
-.player p {
+.player img {
+  width: 50px;
+}
+.player__details {
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.40625rem;
+}
+.player__details p, .player__details a {
+  margin: 0;
+  text-decoration: none;
+  color: #f8f8f8;
+}
+.player__controls button {
+  margin-left: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.player__controls button img {
+  width: 20px;
+}
+
+.main {
+  padding: 20px;
+  margin-bottom: 70px;
+}
+.main h3 {
+  padding: 20px 10px;
+}
+.main__banner {
+  margin: 30px 0;
+  width: 100%;
+  object-fit: cover;
+}
+.main__cards {
+  grid-gap: 20px;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.main__cards--card {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px 0 #00000029;
+}
+.main__cards--card img {
+  margin-bottom: 10px;
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 3px 6px 0 #00000029;
+}
+.main__cards--card p {
   margin: 0;
   font-size: 15px;
   font-size: 0.9375rem;
   line-height: 1.40625rem;
 }
-.player__data {
-  color: #eae8e8;
-  text-decoration: none;
+
+.weekend {
+  color: #f8f8f8;
+  background-color: #050505;
 }
-.player progress {
-  width: 100%;
+
+.travis {
+  color: #f8f8f8;
+  background-color: #8a1c18;
 }
-.player img {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  object-fit: cover;
+
+.eminem {
+  color: #f8f8f8;
+  background-color: #3e3f37;
 }
-.player button {
-  padding: 0;
-  margin: 0;
-  border: none;
-  background-color: transparent;
-}
-.player button img {
-  width: 20px;
-  object-fit: contain;
+
+.rihanna {
+  color: #f8f8f8;
+  background-color: #d78450;
 }

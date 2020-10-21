@@ -19,8 +19,8 @@ html {
 body {
     padding: 0;
     margin: 0;
-    color: $color-claro;
-    background: $color-bg-oscuro;
+    color: $color-oscuro;
+    background: $color-bg-claro;
     @include titulos($Fuente1);
     @include font-size($p);
 }
