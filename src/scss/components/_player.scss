@@ -2,6 +2,17 @@
 @import "./../tokens/spacings";
 @import "./../tokens/typos";
 
+.background__player {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(54, 54, 54, 0.247);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 .player {
   padding: $space;
   display: flex;
@@ -12,16 +23,13 @@
   bottom: 0;
   width: 100%;
   color: $color-claro;
-  -webkit-backdrop-filter: blur(50px);
-  backdrop-filter: blur(50px);
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: $color-oscuro;
   img {
     width: 50px;
   }
   &__details {
     @include font-size($p);
-    p, a {
+    p,
+    a {
       margin: 0;
       text-decoration: none;
       color: $color-claro;

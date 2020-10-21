@@ -514,6 +514,17 @@ body {
   width: 25px;
 }
 
+.background__player {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(54, 54, 54, 0.247);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 .player {
   padding: 10px;
   display: flex;
@@ -524,10 +535,6 @@ body {
   bottom: 0;
   width: 100%;
   color: #f8f8f8;
-  -webkit-backdrop-filter: blur(50px);
-  backdrop-filter: blur(50px);
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: #263238;
 }
 .player img {
   width: 50px;
@@ -537,7 +544,8 @@ body {
   font-size: 0.9375rem;
   line-height: 1.40625rem;
 }
-.player__details p, .player__details a {
+.player__details p,
+.player__details a {
   margin: 0;
   text-decoration: none;
   color: #f8f8f8;
@@ -569,6 +577,18 @@ body {
   display: grid;
   grid-template-columns: auto auto;
 }
+@media only screen and (min-width: 992px) {
+  .main__cards {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .main__banner {
+    margin: 30px 0;
+    width: 50%;
+    object-fit: cover;
+  }
+}
 
 .main__cards--card {
   width: 100%;
@@ -590,6 +610,23 @@ body {
   font-size: 15px;
   font-size: 0.9375rem;
   line-height: 1.40625rem;
+}
+@media only screen and (min-width: 992px) {
+  .main__cards--card {
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px 0 #00000029;
+  }
+  .main__cards--card img {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 85%;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 3px 6px 0 #00000029;
+  }
 }
 
 .weekend {
