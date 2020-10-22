@@ -3,7 +3,7 @@
 @import "../Tokens/typos";
 
 .musicPlayer {
-  // display: none;
+  display: none;
   position: fixed;
   z-index: 2;
   top: 65px;
@@ -13,6 +13,9 @@
   overflow: auto;
   color: $color-primario;
   background-color: $color-bg-claro;
+  @include media(desktop-s) {
+    display: none;
+  }
 }
 
 .container {
@@ -64,4 +67,5 @@
       @include font-size(12px);
     }
   }
+
 }

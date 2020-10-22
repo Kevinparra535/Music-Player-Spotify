@@ -2,7 +2,7 @@
 
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
-    "BQBKqKQVYYiNbzyMz-2GFiUZuOmQyu2p7U-eAjPNUB0FDg-D8QIR-GU2Cfx3cEanWb5pMvyAh_d0lBjftpq-kYxnPi7pLc5SJz2zUb8eETAV5ivBWVYvQrw8hy_MJz8IxNI-cFPCWzFvcDRYDKmNa-wK_4ZM_D6-p6rLuRPseuSurX09WvY";
+    "BQDS-gUkGqtf8-9LVkrZk29ci61aBAetlfXDKkNhisFZn7qOwotDKaLdnSYXUStaYdAvhAf7SMV_zg-u5lu805CH9sk5--OrexqviY_xK6lUfFWbnOl-sLaiRzFMYXWQ7lUvSch0oQvNtmFnQlztu67ZOYfJ6wVoWMWjIKtAjO76EF6jcXk";
   const player = new Spotify.Player({
     name: "Reproductor de Kevin",
     getOAuthToken: (cb) => {
@@ -26,8 +26,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
   // Playback status updates
   player.addListener("player_state_changed", (state) => {
-    console.log(state);
-    console.log("Estas Conectado a spotify!");
+    // console.log(state);
 
     state.track_window.current_track.artists.map((subject) => {
       names = subject.name;
@@ -78,9 +77,9 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   player.addListener(
     "player_state_changed",
     ({ position, duration, track_window: { current_track } }) => {
-      console.log("Currently Playing", current_track);
-      console.log("Position in Song", position);
-      console.log("Duration of Song", duration);
+      // console.log("Currently Playing", current_track);
+      // console.log("Position in Song", position);
+      // console.log("Duration of Song", duration);
 
       var segundosP = duration / 1000;
       const segundos = Math.round(segundosP % 0x3c);
@@ -124,5 +123,13 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   });
 
   // Connect to the player!
-  player.connect();
+  player.connect().then(success => {
+    if (success) {
+      // swal({
+      //   icon: "success",
+      //   title: '¡El SDK de reproducción web se conectó correctamente a Spotify!',
+      //   timer: 2000,
+      // });
+    }
+  })
 };
