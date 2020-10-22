@@ -3,6 +3,7 @@
 @import "../Tokens/typos";
 
 .musicPlayer {
+  // display: none;
   position: fixed;
   z-index: 2;
   top: 65px;
@@ -18,9 +19,19 @@
   padding-bottom: 60px;
   overflow: auto;
   &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: $space $space_x2;
     h2 {
       @include font-size($h2);
+    }
+    button {
+      border: none;
+      background-color: transparent;
+      img {
+        width: 25px;
+      }
     }
   }
 
