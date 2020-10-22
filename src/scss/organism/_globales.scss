@@ -86,7 +86,51 @@
 			object-fit: cover;
 			@include sombras;
 		}
+		&:hover {
+			transition: 500ms ease-in-out;
+			cursor: pointer;
+			box-shadow: 0 3px 6px 0 $color-oscuro;
+		}
 	}
+}
+
+@mixin sliders {
+	-webkit-appearance: none;
+  width: calc(100% - (#{$range-label-width + 10px}));
+  height: $range-track-height;
+  border-radius: 5px;
+  background: $color-variante;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+
+  // Range Handle
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: $range-handle-size;
+    height: $range-handle-size;
+    border-radius: 50%;
+    background: $color-primario;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    &:hover {
+      background: $color-secundario;
+      transform: scale(1.2);
+    }
+  }
+  &::-moz-range-thumb {
+    width: $range-handle-size;
+    height: $range-handle-size;
+    border: 0;
+    border-radius: 50%;
+    background: $range-handle-color;
+    cursor: pointer;
+    transition: background 0.15s ease-in-out;
+    &:hover {
+      background: $range-handle-color-hover;
+    }
+  }
 }
 
 //Funcion para el texto responsivo

@@ -4,7 +4,7 @@
 
 .main {
   padding: $space_x2;
-  margin-bottom: 70px ;
+  margin-bottom: 70px;
   h3 {
     padding: $space_x2 $space;
   }
@@ -18,15 +18,19 @@
     grid-gap: $space_x2;
     @include display-grid;
     @include grid-template-columns(auto auto);
-    @include media(desktop-s) {
-    @include grid-template-columns(auto auto auto auto);
-    }
   }
   @include media(desktop-s) {
     &__banner {
       margin: $space_x3 0;
       width: 50%;
       object-fit: cover;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &__cards {
+      @include grid-template-columns(auto auto auto auto);
     }
   }
 }

@@ -1,0 +1,52 @@
+@import "../Tokens/colors";
+@import "../Tokens/spacings";
+@import "../Tokens/typos";
+
+.controls {
+  text-align: center;
+  @include font-size(12px);
+  &__time {
+    padding: $space 0;
+    align-items: center;
+    @include display-grid;
+    @include grid-template-columns(auto auto auto);
+  }
+
+  &__volume {
+    padding: $space 0;
+    align-items: center;
+    @include display-grid;
+    @include grid-template-columns(auto auto auto);
+    img {
+      width: 20px;
+    }
+  }
+
+  &__music {
+    padding-top: $space;
+    button {
+      padding: $space_x2;
+      margin: $space;
+      border: none;
+      border-radius: 100%;
+      outline: none;
+      background-color: $color-oscuro;
+    }
+
+    &--side {
+      width: 80px;
+      height: 80px;
+      img {
+        width: 20px;
+      }
+    }
+
+    &--center {
+      width: 100px;
+      height: 100px;
+      img {
+        width: 25px;
+      }
+    }
+  }
+}

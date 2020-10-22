@@ -51,6 +51,79 @@
       </div>
     </main>
 
+    <section class="musicPlayer">
+      <div class="container">
+        <div class="container__header">
+          <h2>Artist</h2>
+        </div>
+
+        <div class="container__body">
+          <div class="container__body--covers">
+            <img src="./src/images/icons/player__default.png" alt="" />
+            <!-- <img src="./src/images/icons/player__default.png" alt="" /> -->
+          </div>
+          <h2>Song Name</h2>
+          <p>Album Name - year</p>
+        </div>
+
+        <div class="container__footer">
+          <div class="controls">
+            <div class="controls__time">
+              <p>00:00</p>
+
+              <div
+                class="length range__slider"
+                data-min="00:00"
+                data-max="00:00"
+              >
+                <input
+                  id="slider__time"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="0"
+                />
+              </div>
+
+              <p>00:00</p>
+            </div>
+
+            <div class="controls__volume">
+              <p><img src="./src/images/icons/volume__min.png" alt="" /></p>
+
+              <div
+                class="length range__slider"
+                data-min="00:00"
+                data-max="00:00"
+              >
+                <input
+                  id="slider__volume"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="50"
+                />
+              </div>
+
+              <p><img src="./src/images/icons/volume__max.png" alt="" /></p>
+            </div>
+
+            <div class="controls__music">
+              <button class="controls__music--side">
+                <img src="./src/images/icons/previous.png" alt="" />
+              </button>
+              <button class="controls__music--center">
+                <img src="./src/images/icons/play.png" alt="" />
+              </button>
+              <button class="controls__music--side">
+                <img src="./src/images/icons/next.png" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="background__player"></div>
 
     <div class="player">
@@ -73,8 +146,10 @@
         <button>
           <img src="./src/images/icons/next.png" alt="" />
         </button>
+        <button>
+          <img src="./src/images/icons/up.png" alt="" />
+        </button>
       </div>
     </div>
-
   </body>
 </html>

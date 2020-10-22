@@ -1,0 +1,50 @@
+@import "../Tokens/colors";
+@import "../Tokens/spacings";
+@import "../Tokens/typos";
+
+.range__slider {
+  position: relative;
+  width: 100%;
+  height: calc(#{65px} - 10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // &::before,
+  // &::after {
+  //   position: absolute;
+  //   color: $color-primario;
+  //   font-size: 0.9rem;
+  //   font-weight: bold;
+  // }
+  // &::before {
+  //   content: attr(data-min);
+  //   left: 10px;
+  // }
+  // &::after {
+  //   content: attr(data-max);
+  //   right: 10px;
+  // }
+  .length__title::after {
+    content: attr(data-length);
+    position: absolute;
+    right: -16px;
+    font-variant-numeric: tabular-nums;
+    color: $color-variante;
+  }
+}
+
+$range-handle-color: rgb(255, 255, 255) !default;
+$range-handle-color-hover: rgb(212, 212, 212) !default;
+$range-handle-size: 20px !default;
+$range-track-color: rgba(255, 255, 255, 0.314) !default;
+$range-track-height: 2px !default;
+$range-label-width: 60px !default;
+
+#slider__time {
+  @include sliders;
+}
+
+#slider__volume {
+  @include sliders;
+}
