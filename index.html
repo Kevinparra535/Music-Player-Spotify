@@ -8,7 +8,11 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <link rel="stylesheet" href="./src/css/index.css" />
     <title>Fox Player</title>
   </head>
@@ -17,9 +21,13 @@
       <nav class="header__nav">
         <h1>
           Fox Player
-          <img src="./src/images/icons/icon__spotify.svg" alt="" />
+          <img
+            class="svg-inject"
+            src="./src/images/icons/icon__spotify.svg"
+            alt="Spotify Connect"
+          />
         </h1>
-        <a href="#">
+        <a href="#" class="options">
           <img src="./src/images/icons/nav__menu.png" alt="" />
         </a>
       </nav>
@@ -60,7 +68,7 @@
     <section class="musicPlayer">
       <div class="container">
         <div class="container__header">
-          <h2>Artist</h2>
+          <h2 class="artists__name">Artist</h2>
           <button id="button__down">
             <img src="./src/images/icons/down.png" alt="" />
           </button>
@@ -68,11 +76,15 @@
 
         <div class="container__body">
           <div class="container__body--covers">
-            <img src="./src/images/icons/player__default.png" alt="" />
+            <img
+              class="cover"
+              src="./src/images/icons/player__default.png"
+              alt=""
+            />
             <!-- <img src="./src/images/icons/player__default.png" alt="" /> -->
           </div>
-          <h2>Song Name</h2>
-          <p>Album Name - year</p>
+          <h2 class="song__name">Song Name</h2>
+          <p class="album__name">Album Name</p>
         </div>
 
         <div class="container__footer">
@@ -85,26 +97,23 @@
                 data-min="00:00"
                 data-max="00:00"
               >
-                <input
-                  id="slider__time"
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="0"
-                />
+                <lottie-player
+                  src="https://assets4.lottiefiles.com/packages/lf20_b20u0axq.json"
+                  background="transparent"
+                  speed="1"
+                  style="width: 300px; height: 300px"
+                  loop
+                  autoplay
+                ></lottie-player>
               </div>
 
-              <p>00:00</p>
+              <p class="timeMax">00:00</p>
             </div>
 
             <div class="controls__volume">
               <p><img src="./src/images/icons/volume__min.png" alt="" /></p>
 
-              <div
-                class="length range__slider"
-                data-min="00:00"
-                data-max="00:00"
-              >
+              <div class="length range__slider">
                 <input
                   id="slider__volume"
                   type="range"
@@ -118,14 +127,21 @@
             </div>
 
             <div class="controls__music">
-              <button class="controls__music--side">
-                <img src="./src/images/icons/previous.png" alt="" />
+              <button class="controls__music--side prev">
+                <img
+                  src="./src/images/icons/previous.png"
+                  alt="Icon/Previous"
+                />
               </button>
               <button class="controls__music--center">
-                <img src="./src/images/icons/play.png" alt="" />
+                <img
+                  class="play"
+                  src="./src/images/icons/play.png"
+                  alt="Icon Play/pause"
+                />
               </button>
-              <button class="controls__music--side">
-                <img src="./src/images/icons/next.png" alt="" />
+              <button class="controls__music--side next">
+                <img src="./src/images/icons/next.png" alt="Icon Next" />
               </button>
             </div>
           </div>
@@ -136,23 +152,27 @@
     <div class="background__player"></div>
 
     <div class="player">
-      <img src="./src/images/icons/player__default.png" alt="" />
+      <img
+        class="cover"
+        src="./src/images/icons/player__default.png"
+        alt="Cover Album"
+      />
 
       <div class="player__details">
         <a href="#">
-          <b>Song Name</b>
+          <b class="song__name">Song Name</b>
         </a>
-        <p>Artist</p>
+        <p class="artists__name">Artist</p>
       </div>
 
       <div class="player__controls">
-        <button>
+        <button class="prev">
           <img src="./src/images/icons/previous.png" alt="" />
         </button>
         <button>
-          <img src="./src/images/icons/play.png" alt="" />
+          <img class="play" src="./src/images/icons/play.png" alt="" />
         </button>
-        <button>
+        <button class="next">
           <img src="./src/images/icons/next.png" alt="" />
         </button>
         <button id="button__up">
@@ -161,7 +181,10 @@
       </div>
     </div>
 
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script src="./src/js/index.js"></script>
     <script src="./src/js/musicPlayer.js"></script>
+    <script src="./src/js/modal.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>
