@@ -1,0 +1,12 @@
+@import "../Tokens/colors";
+@import "../Tokens/spacings";
+@import "../Tokens/typos";
+
+.spotify-icon {
+  fill: $color-negative;
+}
+
+.cover {
+  border-radius: $space;
+  @include sombras;
+}

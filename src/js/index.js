@@ -2,7 +2,7 @@
 
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
-    "BQCiItKzhIRVJWo_FDQbaykk8lX16RWw8WXCwlsI-uxeqmNI6AdONhlVMZ4n7TJiHTu3N3SLPEgDuWoXrnD0jqwzzByqvc3tVvMxMtZ5dzzLR7pVKTsmiSCwdUmUovkpt_ySfHZm12OTOFv5fnHYF5xXYIBf50R03IITE5nTRxS2ylH6TiY";
+    "BQBKqKQVYYiNbzyMz-2GFiUZuOmQyu2p7U-eAjPNUB0FDg-D8QIR-GU2Cfx3cEanWb5pMvyAh_d0lBjftpq-kYxnPi7pLc5SJz2zUb8eETAV5ivBWVYvQrw8hy_MJz8IxNI-cFPCWzFvcDRYDKmNa-wK_4ZM_D6-p6rLuRPseuSurX09WvY";
   const player = new Spotify.Player({
     name: "Reproductor de Kevin",
     getOAuthToken: (cb) => {
@@ -27,27 +27,26 @@ window.onSpotifyWebPlaybackSDKReady = () => {
   // Playback status updates
   player.addListener("player_state_changed", (state) => {
     console.log(state);
-
-    $(".header__alert").html("Estas Conectado a spotify!").addClass("success");
     console.log("Estas Conectado a spotify!");
-
-    $(".player__dataName").html(state.track_window.current_track.name);
 
     state.track_window.current_track.artists.map((subject) => {
       names = subject.name;
       return;
     });
-    $(".player__dataArtista").html(names);
+    $(".artists__name").html(names);
 
-    $(".player__album").attr(
+    $(".song__name").html(state.track_window.current_track.name);
+    $(".album__name").html(state.track_window.current_track.album.name);
+
+    $(".cover").attr(
       "src",
       state.track_window.current_track.album.images[0].url
     );
 
     if (state.paused) {
-      $(".image__play").attr("src", "./../src/images/icons/play.png");
-    } else if(state.paused == false) {
-      $(".image__play").attr("src", "./../src/images/icons/pause.png");
+      $(".play").attr("src", "./../src/images/icons/play.png");
+    } else if (state.paused == false) {
+      $(".play").attr("src", "./../src/images/icons/pause.png");
     }
   });
 
@@ -76,7 +75,31 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     console.log("Playing Next", next_track);
   });
 
-  $(".player__play").bind("click", (event) => {
+  player.addListener(
+    "player_state_changed",
+    ({ position, duration, track_window: { current_track } }) => {
+      console.log("Currently Playing", current_track);
+      console.log("Position in Song", position);
+      console.log("Duration of Song", duration);
+
+      var segundosP = duration / 1000;
+      const segundos = Math.round(segundosP % 0x3c);
+      const minutos = Math.floor(segundosP / 0x3c) % 0x3c;
+
+      var dataMax = `${minutos}:${segundos}`;
+      var range__slider = document.querySelector(".range__slider");
+      range__slider.setAttribute("data-max", dataMax);
+      $(".timeMax").html(dataMax);
+    }
+  );
+
+  let slider__volume = document.getElementById("slider__volume");
+  slider__volume.oninput = function () {
+    let volume_percentage = slider__volume.value / 100;
+    player.setVolume(volume_percentage).then(() => {});
+  };
+
+  $(".play").bind("click", (event) => {
     event.preventDefault();
 
     player.togglePlay().then(() => {
@@ -84,11 +107,19 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     });
   });
 
-  $(".player__next").bind("click", (event) => {
+  $(".next").bind("click", (event) => {
     event.preventDefault();
 
     player.nextTrack().then(() => {
       console.log("Skipped to next track!");
+    });
+  });
+
+  $(".prev").bind("click", (event) => {
+    event.preventDefault();
+
+    player.previousTrack().then(() => {
+      console.log("Set to previous track!");
     });
   });
 
