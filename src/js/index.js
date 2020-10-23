@@ -2,7 +2,7 @@
 
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
-    "BQCiItKzhIRVJWo_FDQbaykk8lX16RWw8WXCwlsI-uxeqmNI6AdONhlVMZ4n7TJiHTu3N3SLPEgDuWoXrnD0jqwzzByqvc3tVvMxMtZ5dzzLR7pVKTsmiSCwdUmUovkpt_ySfHZm12OTOFv5fnHYF5xXYIBf50R03IITE5nTRxS2ylH6TiY";
+    "BQDkMv7WSHCLnLz8NfxfSwfBSzTU9-lNXbrcdOD_2MxFUhVAIHRAGvwPd7nTUQtiRnvUZGdlKm94qCTl2DZhKMEUv0HAm5EFuidKf3Mjw2GU7r6XON8nx1f6SBhF9EjBgOnNmJ-Ju4kY4eGejwGLQR0l6C5OgZMzNVDEdMRzzUtBZvZ5wuo";
   const player = new Spotify.Player({
     name: "Reproductor de Kevin",
     getOAuthToken: (cb) => {
