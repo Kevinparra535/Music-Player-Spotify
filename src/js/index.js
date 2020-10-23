@@ -26,28 +26,26 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
   // Playback status updates
   player.addListener("player_state_changed", (state) => {
-    console.log(state);
-
-    $(".header__alert").html("Estas Conectado a spotify!").addClass("success");
-    console.log("Estas Conectado a spotify!");
-
-    $(".player__dataName").html(state.track_window.current_track.name);
+    // console.log(state);
 
     state.track_window.current_track.artists.map((subject) => {
       names = subject.name;
       return;
     });
-    $(".player__dataArtista").html(names);
+    $(".artists__name").html(names);
 
-    $(".player__album").attr(
+    $(".song__name").html(state.track_window.current_track.name);
+    $(".album__name").html(state.track_window.current_track.album.name);
+
+    $(".cover").attr(
       "src",
       state.track_window.current_track.album.images[0].url
     );
 
     if (state.paused) {
-      $(".image__play").attr("src", "./../src/images/icons/play.png");
-    } else if(state.paused == false) {
-      $(".image__play").attr("src", "./../src/images/icons/pause.png");
+      $(".play").attr("src", "./../src/images/icons/play.png");
+    } else if (state.paused == false) {
+      $(".play").attr("src", "./../src/images/icons/pause.png");
     }
   });
 
@@ -76,7 +74,31 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     console.log("Playing Next", next_track);
   });
 
-  $(".player__play").bind("click", (event) => {
+  player.addListener(
+    "player_state_changed",
+    ({ position, duration, track_window: { current_track } }) => {
+      // console.log("Currently Playing", current_track);
+      // console.log("Position in Song", position);
+      // console.log("Duration of Song", duration);
+
+      var segundosP = duration / 1000;
+      const segundos = Math.round(segundosP % 0x3c);
+      const minutos = Math.floor(segundosP / 0x3c) % 0x3c;
+
+      var dataMax = `${minutos}:${segundos}`;
+      var range__slider = document.querySelector(".range__slider");
+      range__slider.setAttribute("data-max", dataMax);
+      $(".timeMax").html(dataMax);
+    }
+  );
+
+  let slider__volume = document.getElementById("slider__volume");
+  slider__volume.oninput = function () {
+    let volume_percentage = slider__volume.value / 100;
+    player.setVolume(volume_percentage).then(() => {});
+  };
+
+  $(".play").bind("click", (event) => {
     event.preventDefault();
 
     player.togglePlay().then(() => {
@@ -84,7 +106,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     });
   });
 
-  $(".player__next").bind("click", (event) => {
+  $(".next").bind("click", (event) => {
     event.preventDefault();
 
     player.nextTrack().then(() => {
@@ -92,6 +114,22 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     });
   });
 
+  $(".prev").bind("click", (event) => {
+    event.preventDefault();
+
+    player.previousTrack().then(() => {
+      console.log("Set to previous track!");
+    });
+  });
+
   // Connect to the player!
-  player.connect();
+  player.connect().then(success => {
+    if (success) {
+      swal({
+        icon: "success",
+        title: '¡El SDK de reproducción web se conectó correctamente a Spotify!',
+        timer: 2000,
+      });
+    }
+  })
 };
